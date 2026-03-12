@@ -1,0 +1,223 @@
+-- CRAZY HUB ULTRA PREMIUM ⚡
+local player = game.Players.LocalPlayer
+local gui = Instance.new("ScreenGui",game.CoreGui)
+
+-- SOM
+local function sound(parent)
+local s = Instance.new("Sound",parent)
+s.SoundId = "rbxassetid://12221967"
+s.Volume = 2
+s:Play()
+game.Debris:AddItem(s,2)
+end
+
+-- NOTIFY
+local function notify(text)
+
+sound(gui)
+
+local n = Instance.new("TextLabel",gui)
+n.Size = UDim2.new(0,220,0,40)
+n.Position = UDim2.new(0.5,-110,0.85,0)
+n.BackgroundColor3 = Color3.fromRGB(15,15,15)
+n.TextColor3 = Color3.fromRGB(0,200,255)
+n.TextScaled = true
+n.Text = text
+Instance.new("UICorner",n)
+
+task.wait(2)
+n:Destroy()
+
+end
+
+-- TEXTO TOPO
+local tag = Instance.new("TextLabel",gui)
+tag.Size = UDim2.new(0,160,0,22)
+tag.Position = UDim2.new(0.5,-80,0,0)
+tag.BackgroundTransparency = 1
+tag.Text = "@jandsoncrazy"
+tag.Font = Enum.Font.GothamBold
+tag.TextScaled = true
+
+task.spawn(function()
+while true do
+tag.TextColor3 = Color3.fromHSV(tick()%5/5,1,1)
+task.wait()
+end
+end)
+
+-- DISCORD
+local discord = Instance.new("TextButton",gui)
+discord.Size = UDim2.new(0,34,0,34)
+discord.Position = UDim2.new(0.5,-17,0.08,0)
+discord.Text = "💬"
+discord.TextScaled = true
+discord.BackgroundColor3 = Color3.fromRGB(88,101,242)
+Instance.new("UICorner",discord)
+
+discord.MouseButton1Click:Connect(function()
+
+sound(discord)
+setclipboard("https://discord.gg/KgzbsXu64w")
+notify("Discord copiado")
+
+end)
+
+-- KEY FRAME
+local frame = Instance.new("Frame",gui)
+frame.Size = UDim2.new(0,250,0,170)
+frame.Position = UDim2.new(0.5,-125,0.5,-85)
+frame.BackgroundColor3 = Color3.fromRGB(10,10,10)
+frame.Active = true
+frame.Draggable = true
+Instance.new("UICorner",frame)
+
+-- ANIMAÇÃO ABRIR
+frame.Size = UDim2.new(0,0,0,0)
+game.TweenService:Create(frame,TweenInfo.new(0.4),{
+Size = UDim2.new(0,250,0,170)
+}):Play()
+
+-- BORDA
+local stroke = Instance.new("UIStroke",frame)
+stroke.Color = Color3.fromRGB(0,170,255)
+stroke.Thickness = 2
+
+-- BORDA PULSANDO
+task.spawn(function()
+while true do
+stroke.Color = Color3.fromHSV(tick()%5/5,1,1)
+task.wait()
+end
+end)
+
+-- TITULO
+local title = Instance.new("TextLabel",frame)
+title.Size = UDim2.new(1,0,0,40)
+title.BackgroundTransparency = 1
+title.Text = "SCRIPT PREMIUM!"
+title.TextColor3 = Color3.fromRGB(0,200,255)
+title.Font = Enum.Font.GothamBold
+title.TextScaled = true
+
+-- KEYBOX
+local box = Instance.new("TextBox",frame)
+box.Size = UDim2.new(0.8,0,0,35)
+box.Position = UDim2.new(0.1,0,0.35,0)
+box.PlaceholderText = "Enter Key..."
+box.BackgroundColor3 = Color3.fromRGB(25,25,25)
+box.TextColor3 = Color3.new(1,1,1)
+box.TextScaled = true
+Instance.new("UICorner",box)
+
+-- GET KEY
+local get = Instance.new("TextButton",frame)
+get.Size = UDim2.new(0.35,0,0,35)
+get.Position = UDim2.new(0.1,0,0.65,0)
+get.Text = "GET KEY"
+get.BackgroundColor3 = Color3.fromRGB(0,120,255)
+get.TextScaled = true
+Instance.new("UICorner",get)
+
+get.MouseButton1Click:Connect(function()
+
+sound(get)
+setclipboard("https://discord.gg/KgzbsXu64w")
+notify("Link copiado")
+
+end)
+
+-- VERIFY
+local verify = Instance.new("TextButton",frame)
+verify.Size = UDim2.new(0.35,0,0,35)
+verify.Position = UDim2.new(0.55,0,0.65,0)
+verify.Text = "VERIFY"
+verify.BackgroundColor3 = Color3.fromRGB(0,200,120)
+verify.TextScaled = true
+Instance.new("UICorner",verify)
+
+-- FUNÇÃO TP HUB
+local function openTP()
+
+frame:Destroy()
+
+local tp = Instance.new("Frame",gui)
+tp.Size = UDim2.new(0,160,0,90)
+tp.Position = UDim2.new(0.5,-80,0.65,0)
+tp.BackgroundColor3 = Color3.fromRGB(10,10,10)
+tp.Active = true
+tp.Draggable = true
+Instance.new("UICorner",tp)
+
+local stroke2 = Instance.new("UIStroke",tp)
+stroke2.Color = Color3.fromRGB(0,170,255)
+
+local title2 = Instance.new("TextLabel",tp)
+title2.Size = UDim2.new(1,0,0,35)
+title2.BackgroundTransparency = 1
+title2.Text = "CRAZY TP ⚡"
+title2.TextScaled = true
+title2.Font = Enum.Font.GothamBlack
+title2.TextColor3 = Color3.fromRGB(0,200,255)
+
+local btn = Instance.new("TextButton",tp)
+btn.Size = UDim2.new(0.8,0,0,35)
+btn.Position = UDim2.new(0.1,0,0.55,0)
+btn.Text = "TELEPORT"
+btn.BackgroundColor3 = Color3.fromRGB(0,140,255)
+btn.TextScaled = true
+Instance.new("UICorner",btn)
+
+-- BOTÃO GLOW
+task.spawn(function()
+while true do
+btn.BackgroundColor3 = Color3.fromHSV(tick()%5/5,1,1)
+task.wait()
+end
+end)
+
+btn.MouseButton1Click:Connect(function()
+
+sound(btn)
+
+local char = player.Character
+local hrp = char and char:FindFirstChild("HumanoidRootPart")
+
+if hrp then
+
+-- TP
+hrp.CFrame = hrp.CFrame * CFrame.new(0,0,-30)
+
+-- EFEITO RAIO
+local p = Instance.new("Part",workspace)
+p.Anchored = true
+p.CanCollide = false
+p.Size = Vector3.new(1,10,1)
+p.Material = Enum.Material.Neon
+p.Color = Color3.fromRGB(0,170,255)
+p.CFrame = hrp.CFrame * CFrame.new(0,5,0)
+
+game.Debris:AddItem(p,0.3)
+
+notify("Teleport usado ⚡")
+
+end
+
+end)
+
+end
+
+-- VERIFY
+verify.MouseButton1Click:Connect(function()
+
+sound(verify)
+
+if box.Text == "crazy10" then
+notify("Key correta")
+task.wait(1)
+openTP()
+else
+notify("Key incorreta")
+end
+
+end)
